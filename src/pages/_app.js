@@ -1,13 +1,14 @@
 import '../styles/globals.css'; // Import your global styles
-import tailwindConfig from '../../tailwind.config';
-import { ThemeProvider } from 'styled-components';
-import React from 'react';
+import {cache} from '@emotion/css'
+import { CacheProvider } from '@emotion/react';
+import GlobalStyles from '@/components/utils/CreateGlobalStyles';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider theme={tailwindConfig.theme}>
+    <CacheProvider value={cache}>
+      <GlobalStyles />
       <Component {...pageProps} />
-    </ThemeProvider>
+    </CacheProvider>
   );
 }
 
